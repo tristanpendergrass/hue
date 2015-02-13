@@ -75,12 +75,17 @@ function getRandomInt (min, max) {
 //cycleRandomColors(['1', '2', '3'], [fullRed, fullBlue[>, fullGreen, fullWhite<]], 250);
 
 var sequence = [
-  { repetitions: 20, interval: 50 },
-  { repetitions: 10, interval: 100 },
-  { repetitions: 10, interval: 125 },
-  { repetitions: 10, interval: 150 },
-  { repetitions: 5, interval: 300 },
-  { repetitions: 3, interval: 500 }
+  { repetitions: 30, interval: 100 },
+  { repetitions: 5, interval: 120 },
+  { repetitions: 5, interval: 140 },
+  { repetitions: 5, interval: 160 },
+  { repetitions: 5, interval: 180 },
+  { repetitions: 5, interval: 200 },
+  { repetitions: 5, interval: 240 },
+  { repetitions: 5, interval: 280 },
+  { repetitions: 5, interval: 320 },
+  { repetitions: 3, interval: 450 },
+  { repetitions: 3, interval: 550 }
 ];
 
 runPartOfSequence(sequence);
