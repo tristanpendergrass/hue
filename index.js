@@ -2,6 +2,7 @@ var request = require('request');
 var colors = require('./colors.js');
 
 var baseUrl = 'http://192.168.1.5/api/newdeveloper';
+//var baseUrl = 'http://72.70.51.89/api/newdeveloper';
 
 var fullRed   = colors.hexToCIE1931(colors.hexFullRed);
 var fullGreen = colors.hexToCIE1931(colors.hexFullGreen);
