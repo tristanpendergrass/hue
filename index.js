@@ -71,23 +71,45 @@ function getRandomInt (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-cycleRandomColors(['1', '2', '3'], [fullRed, fullBlue/*, fullGreen, fullWhite*/], 250);
+//cycleRandomColors(['1', '2', '3'], [fullRed, fullBlue[>, fullGreen, fullWhite<]], 250);
 
-//var sequence = [
-  //{ repetitions: 20, interval: 50 },
-  //{ repetitions: 10, interval: 100 },
-  //{ repetitions: 5, interval: 500 },
-  //{ repetitions: 3, interval: 1000 }
-//];
+var sequence = [
+  { repetitions: 20, interval: 50 },
+  { repetitions: 10, interval: 100 },
+  { repetitions: 10, interval: 125 },
+  { repetitions: 10, interval: 150 },
+  { repetitions: 5, interval: 300 },
+  { repetitions: 3, interval: 500 }
+];
 
-//function runPartOfSequence (sequence, part) {
-  //if (part < sequence.length) {
-	//var repetitions = sequence[part].repetitions;
-	//var interval = sequence[part].interval;
+runPartOfSequence(sequence);
 
-	//for (var i = 0; i < repetitions; i++) {
-	  //turnLightToRandomColor(
-	//}
-  //}
-//}
-//turnLightToColor
+function runPartOfSequence (sequence, part) {
+  if (typeof part === 'undefined') {
+	part = 0;
+  }
+
+  if (part < sequence.length) {
+	var repetitions = sequence[part].repetitions;
+	var interval = sequence[part].interval;
+	var count = 0;
+
+	function runRecursive (callback) {
+	  turnLightToRandomColor('2', [fullRed, fullBlue, fullWhite]);
+	  if (count < repetitions) {
+		count++;
+		console.log('next change in', interval);
+		setTimeout(function () {
+		  runRecursive(callback)
+		}, interval);
+	  } else {
+		callback();
+	  }
+	}
+
+	runRecursive(function () {
+	  runPartOfSequence(sequence, part + 1);
+	});
+  }
+}
+
