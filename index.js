@@ -23,7 +23,7 @@ function turnLightToColor (light, color, callback) {
   var params = {
 	transitiontime: 0,
 	on: true,
-	bri: 254,
+	bri: 1,
 	xy: color
   };
 
@@ -101,7 +101,7 @@ function runPartOfSequence (sequence, part) {
 	var count = 0;
 
 	function runRecursive (callback) {
-	  turnLightToRandomColor('2', [fullRed, fullBlue, fullWhite]);
+	  turnLightToRandomColor('2', [fullRed, fullBlue, fullGreen]);
 	  if (count < repetitions) {
 		count++;
 		console.log('next change in', interval);
